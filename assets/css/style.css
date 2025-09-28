@@ -1952,12 +1952,20 @@ textarea.input-field {
   .navbar.active,
   .navbar-list { all: unset; }
 
+  /* Center the navbar regardless of logo/button widths */
   .navbar,
-  .navbar.active { margin-inline: auto 20px; }
+  .navbar.active {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;               /* override margin-inline: auto 20px; */
+  }
 
   .navbar-list {
     display: flex;
     gap: 30px;
+    justify-content: center;
+    width: 100%;
   }
 
   .navbar-item { border-block-start: none; }
