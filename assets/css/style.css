@@ -1568,29 +1568,27 @@ textarea.input-field {
   /**
    * MENU
    */
-
-  .menu-card .title-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-  }
-
   .menu-card .badge { margin-block-start: 0; }
 
-  .menu-card .span {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    position: relative;
+  .menu-card .title-wrapper h3 {
+    flex: 0 1 auto;   /* allow shrinking */
+    min-width: 0;     /* required so ellipsis can kick in */
   }
 
+  /* Keep the title on one line but allow truncation */
+  .menu-card .card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Make the separator actually render as a flex item */
   .menu-card .span::before {
+    display: block;                 /* important */
     content: "";
-    height: 6px;
-    flex-grow: 1;
-    border-block: 1px solid var(--white-alpha-20);
+    border-top: 1px solid var(--white-alpha-20);
+    height: 0;                      /* we just need the border line */
+    flex: 1 1 auto;                 /* take remaining space */
   }
 
 
@@ -2141,3 +2139,9 @@ textarea.input-field {
   }
 
 }
+
+  /**
+   * MY STUFF
+   */
+   
+  .menu-card .card-title { white-space: nowrap; }
